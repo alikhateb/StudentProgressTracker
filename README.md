@@ -77,5 +77,5 @@ Modern .NET 9 Web API implementing Clean Architecture with robust infrastructure
 - Features:
   - Implement `IHttpContextAccessor` to get the current user's login data from identity claims and user claims
 
-## Project Structure
+## Project Instructions
 - `env` folder contains `sqlserver.yaml` you can use this file with `command docker compose -f file.yml up`
