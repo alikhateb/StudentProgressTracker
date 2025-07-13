@@ -5,18 +5,20 @@ Modern .NET 9 Web API implementing Clean Architecture with robust infrastructure
 
 ## Architectural Patterns
 
-### 1. Specification & Repository Patterns
+### 1. RESTful API with documentation (Swagger/OpenAPI)
+
+### 2. Specification & Repository Patterns
 - **Package**: `Ardalis.Specification`
 - Base `Repository<T>` with CRUD operations
 - Specifications encapsulate query logic
 - Supports eager loading via `Include()`/`ThenInclude()`
 
-### 2. Mediator Pattern
+### 3. Mediator Pattern
 - **Package**: `MediatR`
 - Commands/Queries separated from handlers
 - No direct controller-business logic coupling
 
-### 3. MediatR Pipeline `ValidationBehavior<TRequest, TResponse>` `ValidationProcessor<TRequest>`
+### 4. MediatR Pipeline `ValidationBehavior<TRequest, TResponse>` `ValidationProcessor<TRequest>`
 - Pipeline behaviors for:
   - Validation
   - Logging
@@ -24,25 +26,25 @@ Modern .NET 9 Web API implementing Clean Architecture with robust infrastructure
   - Exception handling
 - `IPipelineBehavior<TRequest, TResponse>`, `IRequestPreProcessor<TRequest>`
 
-### 4. Fluent Validation
+### 5. Fluent Validation
 - Request validation layer
 - Automatic DI registration
 - Custom validation exceptions
 
-### 5. Entity Framework Core
+### 6. Entity Framework Core
 - Code-first migrations
 - Supports **SQL Server**
 - Repository + Unit of Work
 - Database-agnostic design
 
-### 6. Clean Architecture
+### 7. Clean Architecture
 - **Layers**:
   - Domain (Core business)
   - Application (Use cases)
   - Infrastructure (Persistence)
   - Presentation (API)
 
-### 7. Global Exception Handling
+### 8. Global Exception Handling
 - `ExceptionHandlerMiddleware`
 - RFC 7807 ProblemDetails
 - Handles:
@@ -51,29 +53,29 @@ Modern .NET 9 Web API implementing Clean Architecture with robust infrastructure
   - Domain
   - Unhandled exceptions
 
-### 8. Strongly-Typed IDs
+### 9. Strongly-Typed IDs
 - **Package**: `StronglyTypedId`
 - Type-safe entity IDs
 - EF Core value converters
 
-### 9. Pagination & Dynamic Querying
+### 10. Pagination & Dynamic Querying
 - Features:
   - Multi-column sorting
   - Expression tree filtering
   - Server-side pagination
 - `PagedResponse<T>` and `RequestOptions` models
 
-### 10. EF Core interceptor
+### 11. EF Core interceptor
 - Features:
   - Auditing added and modified entities
 - `SaveChangesInterceptor` abstract class
 
-### 11. Auto Apply Migration
+### 12. Auto Apply Migration
 - Features:
   - extension method on IApplicationBuilder to create a scope to apply migration automatically
   - No need for `dotnet ef database update` or `Update-Database` commands
 
-### 12. ICurrentUserService
+### 13. ICurrentUserService
 - Features:
   - Implement `IHttpContextAccessor` to get the current user's login data from identity claims and user claims
 
